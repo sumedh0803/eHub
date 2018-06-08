@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.fdghtdhg.ehub.login"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/root_layout"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="60dp"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi! Welcome to eHub!"
+                    android:textSize="30sp"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your one stop solution for all Engineering needs"
+                    android:textSize="20sp"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in using your email or Google"
+                    android:textSize="18sp"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please check your credentials and try again!"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone"
+                    android:id="@+id/errorMsg"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:theme="@style/EditTextHint"
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress">
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        android:textSize="20sp"
+                        android:textColor="#fff"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:theme="@style/EditTextHint"
+                    android:id="@+id/input_layout_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:inputType="textPassword"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailSignin"
+                    android:text="sign in"
+                    android:background="@color/colorAccent"
+                    />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/googlesignin"
+                    android:text="sign in using google"
+                    android:layout_marginTop="10dp"
+                    android:background="#fff"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/register"
+                    android:textSize="18sp"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    android:text="Not yet registered? Sign up now!"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+</ScrollView>
+</LinearLayout>
+
+<!--
+-->

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "64412551426",
+    "firebase_url": "https://ehub-5af97.firebaseio.com",
+    "project_id": "ehub-5af97",
+    "storage_bucket": "ehub-5af97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64412551426:android:9a48c3579abecffe",
+        "android_client_info": {
+          "package_name": "com.example.fdghtdhg.ehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64412551426-535poc3l5t2v857f365tklpmuigbgdup.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "64412551426-535poc3l5t2v857f365tklpmuigbgdup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA19ZK-ErDHRPaQt_T7Op6qx4ahgxDx8gc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

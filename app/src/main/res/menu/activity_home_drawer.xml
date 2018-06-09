@@ -19,9 +19,9 @@
             android:icon="@drawable/ic_twotone_reminder_24px"
             android:title="Reminder" />
         <item
-            android:id="@+id/nav_settings"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_twotone_settings_applications_24px"
-            android:title="Settings" />
+            android:title="Profile" />
         <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_twotone_contact_support_24px"

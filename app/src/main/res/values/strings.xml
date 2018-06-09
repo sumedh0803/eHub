@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">eHub</string>
-    <string name="title_activity_home">home</string>
-
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_profile">Profile</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

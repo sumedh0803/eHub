@@ -1,6 +1,7 @@
 package com.example.fdghtdhg.ehub;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,10 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class register extends AppCompatActivity {
-    EditText email, pwd,name,clg,sem;
+    EditText email, pwd;
     Button signup;
-    private ProgressDialog pb;
-
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -29,11 +28,7 @@ public class register extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         pwd = findViewById(R.id.pwd);
-        name = findViewById(R.id.name);
-        clg = findViewById(R.id.clg);
-        sem = findViewById(R.id.sem);
         signup = findViewById(R.id.signup);
-        pb = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -43,12 +38,8 @@ public class register extends AppCompatActivity {
             public void onClick(View v) {
                 String emailString = email.getText().toString().trim();
                 String pwdString = pwd.getText().toString().trim();
-                String nameString = name.getText().toString().trim();
-                String clgString = clg.getText().toString().trim();
-                String semString = sem.getText().toString().trim();
 
-                pb.setMessage("Registering..");
-                pb.show();
+
                 firebaseAuth.createUserWithEmailAndPassword(emailString,pwdString)
                         .addOnCompleteListener(register.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -57,7 +48,8 @@ public class register extends AppCompatActivity {
                                 if(task.isSuccessful())
                                 {
                                     Toast.makeText(getBaseContext(),"Success",Toast.LENGTH_SHORT).show();
-                                    pb.cancel();
+                                    startActivity(new Intent(register.this, profile.class));
+
                                 }
                                 else
                                 {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_twotone_home_24px"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_twotone_attendance_24px"
+            android:title="Attendance" />
+        <item
+            android:id="@+id/nav_study"
+            android:icon="@drawable/ic_twotone_studymaterial_24px"
+            android:title="Study Material" />
+        <item
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/ic_twotone_reminder_24px"
+            android:title="Reminder" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_twotone_settings_applications_24px"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_twotone_contact_support_24px"
+            android:title="Contact Us" />
+    </group>
+
+
+</menu>

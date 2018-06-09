@@ -11,9 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     TextView tv;
     private boolean isSecondActivityLaunched;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +33,38 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        }, 3*1000); // wait for 5 seconds
+        }, 3*1000); // wait for 3 seconds
         //ActivityCompat. finishAfterTransition(this);
+
 
     }
 
 
     public void presentActivity(View view) {
+        firebaseAuth = FirebaseAuth.getInstance();
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(this, view, "transition");
         int revealX = (int) (view.getX() + view.getWidth() / 2);
         int revealY = (int) (view.getY() + view.getHeight() / 2);
 
-        Intent i=new Intent(MainActivity.this,login.class);
-        i.putExtra(login.EXTRA_CIRCULAR_REVEAL_X, revealX);
-        i.putExtra(login.EXTRA_CIRCULAR_REVEAL_Y, revealY);
+        if(firebaseAuth.getCurrentUser() != null)
+        {
+            Intent i=new Intent(MainActivity.this,home.class);
+            i.putExtra(login.EXTRA_CIRCULAR_REVEAL_X, revealX);
+            i.putExtra(login.EXTRA_CIRCULAR_REVEAL_Y, revealY);
+            ActivityCompat.startActivity(this, i, options.toBundle());
+        }
+        else
+        {
+            Intent i=new Intent(MainActivity.this,login.class);
+            i.putExtra(login.EXTRA_CIRCULAR_REVEAL_X, revealX);
+            i.putExtra(login.EXTRA_CIRCULAR_REVEAL_Y, revealY);
+            ActivityCompat.startActivity(this, i, options.toBundle());
+        }
 
-        ActivityCompat.startActivity(this, i, options.toBundle());
+
+
+
         isSecondActivityLaunched = true;
     }
     @Override

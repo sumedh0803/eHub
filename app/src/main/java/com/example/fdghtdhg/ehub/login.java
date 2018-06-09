@@ -151,26 +151,33 @@ public class login extends AppCompatActivity {
     protected void userlogin(String emailString,String pwdString)
     {
         errorMsg = findViewById(R.id.errorMsg);
-        pd.setMessage("Signing in");
-        pd.show();
-        firebaseAuth.signInWithEmailAndPassword(emailString,pwdString)
-        .addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+        if(emailString.contentEquals("") || pwdString.contentEquals(""))
+        {
+            errorMsg.setText("Email or password cannot be blank");
+            errorMsg.setVisibility(View.VISIBLE);
+        }
+        else {
+            pd.setMessage("Signing in");
+            pd.show();
+            firebaseAuth.signInWithEmailAndPassword(emailString, pwdString)
+                    .addOnCompleteListener(login.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful())
-                {
-                    Toast.makeText(getApplication(),"Go to home activity",Toast.LENGTH_SHORT).show();
-                    errorMsg.setVisibility(View.GONE);
-                    pd.cancel();
-                }
-                else
-                {
-                    pd.cancel();
-                    errorMsg.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplication(), "Go to home activity", Toast.LENGTH_SHORT).show();
+                                errorMsg.setVisibility(View.GONE);
+                                pd.cancel();
+                                startActivity(new Intent(getBaseContext(),home.class));
+                                finish();
+                            } else {
+                                pd.cancel();
+                                errorMsg.setText("Please check your credentials and try again!");
+                                errorMsg.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
+        }
 
 
 

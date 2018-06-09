@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.fdghtdhg.ehub.profile"
+android:orientation="vertical"
+android:id="@+id/root_layout"
+android:padding="10dp"
+android:background="@color/background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complete your profile"
+        android:textSize="35sp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="#fff"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:divider="#fff">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your name to personalize the app"
+            android:textSize="16sp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:divider="#fff">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="University"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your University"
+            android:textSize="16sp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:divider="#fff">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Branch"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your engineering branch"
+            android:textSize="16sp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:divider="#fff">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Semester"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your current semester"
+            android:textSize="16sp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/saveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorAccent"
+        android:text="Save" />
+
+</LinearLayout>
+<!--
+
+<android.support.design.widget.TextInputLayout
+        android:theme="@style/EditTextHint"
+        android:id="@+id/input_layout_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress">
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:theme="@style/EditTextHint"
+        android:id="@+id/input_layout_sem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/sem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Semester"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:theme="@style/EditTextHint"
+        android:id="@+id/input_layout_college"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/clg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="College"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
+    -->

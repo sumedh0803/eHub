@@ -13,18 +13,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+
+import me.anwarshahriar.calligrapher.Calligrapher;
 
 public class home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    TextView welcome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Calligrapher calligrapher = new Calligrapher(this);
+        calligrapher.setFont(this, "Product Sans Regular.ttf", true);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -35,7 +48,62 @@ public class home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
+
+        welcome = findViewById(R.id.welcome);
+        String welcomeString = "";
+        String welcomeName = "";
+        String welcomeInit = "";
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int hours = cal.get(Calendar.HOUR_OF_DAY);
+       // welcome.setText(Integer.toString(hours));
+
+        if(hours >= 0 && hours <4)
+        {
+            welcomeInit = "Good Evening";
+        }
+        else if(hours >= 4 && hours < 12)
+        {
+            welcomeInit = "Good Morning";
+        }
+        else if(hours >= 12 && hours < 16)
+        {
+            welcomeInit = "Good Afternoon";
+        }
+        else if(hours >= 16)
+        {
+            welcomeInit = "Good Evening";
+        }
+        File f = getBaseContext().getFileStreamPath("userName.txt");
+        if (f.exists()) {
+            try
+            {
+                FileInputStream fis = openFileInput("userName.txt");
+                int c;
+
+                while ((c = fis.read()) > 0) {
+                    welcomeName += Character.toString((char) c);
+                }
+
+                welcomeString = welcomeInit + ", " + welcomeName + "!";
+                welcome.setText(welcomeString);
+
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            welcomeString = welcomeInit + "!";
+            welcome.setText(welcomeString);
+        }
+
+
+        }
 
     @Override
     public void onBackPressed() {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context="com.example.fdghtdhg.ehub.profile"
-android:orientation="vertical"
 android:id="@+id/root_layout"
 android:padding="10dp"
 android:background="@color/background">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -17,14 +17,17 @@ android:background="@color/background">
         android:text="Complete your profile"
         android:textSize="35sp"
         android:padding="10dp"
-        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/profiletv"
         android:textColor="#fff"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:divider="#fff">
+        android:divider="#fff"
+        android:id="@+id/ll1"
+        android:layout_below="@id/profiletv">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,14 +40,17 @@ android:background="@color/background">
             android:layout_height="wrap_content"
             android:text="Enter your name to personalize the app"
             android:textSize="16sp"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:id="@+id/name_desc"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:divider="#fff">
+        android:divider="#fff"
+        android:id="@+id/ll2"
+        android:layout_below="@id/ll1">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,14 +63,17 @@ android:background="@color/background">
             android:layout_height="wrap_content"
             android:text="Enter your University"
             android:textSize="16sp"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:id="@+id/univ_desc"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:divider="#fff">
+        android:divider="#fff"
+        android:id="@+id/ll3"
+        android:layout_below="@id/ll2">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,14 +86,17 @@ android:background="@color/background">
             android:layout_height="wrap_content"
             android:text="Enter your engineering branch"
             android:textSize="16sp"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:id="@+id/branch_desc"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:divider="#fff">
+        android:divider="#fff"
+        android:id="@+id/ll4"
+        android:layout_below="@id/ll3">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,7 +109,8 @@ android:background="@color/background">
             android:layout_height="wrap_content"
             android:text="Enter your current semester"
             android:textSize="16sp"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:id="@+id/sem_desc"/>
     </LinearLayout>
 
 
@@ -105,12 +118,14 @@ android:background="@color/background">
         android:id="@+id/saveData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginTop="50dp"
+        android:layout_gravity="bottom|right"
         android:background="@color/colorAccent"
-        android:text="Save" />
+        android:text="Save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"/>
 
-</LinearLayout>
+</RelativeLayout>
 <!--
 
 <android.support.design.widget.TextInputLayout

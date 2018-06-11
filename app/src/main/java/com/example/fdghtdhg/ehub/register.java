@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import me.anwarshahriar.calligrapher.Calligrapher;
+
 public class register extends AppCompatActivity {
     EditText email, pwd;
     Button signup;
@@ -25,6 +27,8 @@ public class register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Calligrapher calligrapher = new Calligrapher(this);
+        calligrapher.setFont(this, "Product Sans Regular.ttf", true);
 
         email = findViewById(R.id.email);
         pwd = findViewById(R.id.pwd);

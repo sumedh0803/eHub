@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_twotone_syllabus_24px"
+        android:title="Syllabus" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_twotone_qs_paper_24px"
+        android:title="Question papers" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_twotone_picture_as_pdf_24px"
+        android:title="Image to PDF" />
+
+    <item
+        android:id="@+id/navigation_youtube"
+        android:icon="@drawable/ic_youtube"
+        android:title="Youtube Links" />
+
+</menu>

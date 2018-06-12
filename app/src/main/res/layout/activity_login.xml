@@ -100,21 +100,18 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:id="@+id/emailSignin"
-                    android:text="sign in"
-                    android:background="@color/colorAccent"
-                    />
-                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/googlesignin"
-                    android:text="sign in using google"
-                    android:layout_marginTop="10dp"
-                    android:background="#fff"
 
-                    />
+                    android:text="sign in with email" />
+
+
+                <com.google.android.gms.common.SignInButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/googlesignin"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

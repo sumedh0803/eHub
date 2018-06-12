@@ -4,17 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.fdghtdhg.ehub.university"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context="com.example.fdghtdhg.ehub.university">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_list"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:clipToPadding="false"
-        android:padding="4dp"
-        android:scrollbars="vertical"
-        tools:listitem="@layout/single_item_view" />
+        android:id="@+id/univ_lv"
+        android:divider="#acacac"
+        android:dividerHeight="0.5dip"></ListView>
 
 </LinearLayout>

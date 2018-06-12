@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +31,7 @@ public class login extends AppCompatActivity {
 
     public static final String EXTRA_CIRCULAR_REVEAL_X = "EXTRA_CIRCULAR_REVEAL_X";
     public static final String EXTRA_CIRCULAR_REVEAL_Y = "EXTRA_CIRCULAR_REVEAL_Y";
+    private static final int RC_SIGN_IN = 1 ;
 
     View rootLayout;
 
@@ -36,6 +39,7 @@ public class login extends AppCompatActivity {
     private int revealY;
 
     Button emailSignin;
+    SignInButton googleSignin;
     EditText email, pwd;
     TextView register,errorMsg;
     ProgressDialog pd;
@@ -46,14 +50,12 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        firebaseAuth = FirebaseAuth.getInstance();
         pd = new ProgressDialog(this);
 
         //Set universal font for the activity
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Product Sans Regular.ttf", true);
-
-        firebaseAuth = FirebaseAuth.getInstance();
 
         //Animation
         final Intent intent = getIntent();
@@ -83,9 +85,17 @@ public class login extends AppCompatActivity {
 
         //login
         emailSignin = findViewById(R.id.emailSignin);
+        googleSignin = findViewById(R.id.googlesignin);
         email = findViewById(R.id.email);
         pwd = findViewById(R.id.pwd);
         register = findViewById(R.id.register);
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
 
         emailSignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,4 +192,9 @@ public class login extends AppCompatActivity {
 
 
     }
+
+    /*private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }*/
 }

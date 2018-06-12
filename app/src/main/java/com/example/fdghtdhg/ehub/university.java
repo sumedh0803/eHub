@@ -1,115 +1,125 @@
 package com.example.fdghtdhg.ehub;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import me.anwarshahriar.calligrapher.Calligrapher;
 
 public class university extends AppCompatActivity {
 
-    DatabaseReference mDatabase;
-    private RecyclerView mRecycler;
+
+    DatabaseReference dref;
+    ListView listview;
+    ArrayList<String> list = new ArrayList<>();
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_university);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mRecycler = findViewById(R.id.recycler_list);
-        if (mRecycler != null) {
-            mRecycler.setHasFixedSize(true);
-        }
-
-        LinearLayoutManager mManager = new LinearLayoutManager(getApplicationContext());
-        mRecycler.setLayoutManager(mManager);
-        get_list();
-        mRecycler.setOnClickListener(new View.OnClickListener() {
+        listview = (ListView) findViewById(R.id.univ_lv);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, list)
+        {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(),Integer.toString(v.getId()),Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    public void get_list(){
-        Query aQuery = mDatabase.child("universities").child("all-universities");
-        FirebaseRecyclerAdapter<Recycler_model, Recycler_ViewHolder> mAdapter = new FirebaseRecyclerAdapter<Recycler_model,
-                        Recycler_ViewHolder>(Recycler_model.class,
-                R.layout.single_item_view, Recycler_ViewHolder.class, aQuery) {
-            @Override
-            protected void populateViewHolder(Recycler_ViewHolder v,Recycler_model m,int p) {
-                Calligrapher calligrapher = new Calligrapher(getBaseContext());
+            public View getView(int position, View convertView, ViewGroup parent){
+                // Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
+                Calligrapher calligrapher = new Calligrapher(getApplicationContext());
                 calligrapher.setFont(university.this, "Product Sans Regular.ttf", true);
-                DatabaseReference post = getRef(p);
-                v.data.setText(m.univ_name+"");
-                // so as to avoid the error when by chance the value
-                // in the database will be int
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                // Set the text color of TextView (ListView Item)
+                tv.setTextColor(Color.WHITE);
+                tv.setTextSize(20);
 
+
+                // Generate ListView Item using TextView
+                return view;
             }
         };
-        mRecycler.setAdapter(mAdapter);
-    }
+        listview.setAdapter(adapter);
+        dref = FirebaseDatabase.getInstance().getReference().child("universities").child("all-univ");
 
+        dref.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Calligrapher calligrapher = new Calligrapher(getBaseContext());
+                calligrapher.setFont(university.this, "Product Sans Regular.ttf", true);
+                list.add(dataSnapshot.getValue(String.class));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Calligrapher calligrapher = new Calligrapher(getBaseContext());
+                calligrapher.setFont(university.this, "Product Sans Regular.ttf", true);
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                list.remove(dataSnapshot.getValue(String.class));
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String univName = (String) parent.getItemAtPosition(position);
+                try {
+                    FileOutputStream fOut = openFileOutput("userUniversity.txt",MODE_PRIVATE);
+                    fOut.write(univName.getBytes());
+                    fOut.close();
+                    startActivity(new Intent(university.this,profile.class));
+                    finish();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String uid = firebaseAuth.getInstance().getUid();
+                dref = FirebaseDatabase.getInstance().getReference("users");
+                dref.child(uid).child("university").setValue(univName);
+
+
+              //  Toast.makeText(getApplicationContext(),position + ":" + selectedItem,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 }
-
-/*class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
-{
-    public static class ViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener
-    {
-        private String mItem;
-        private TextView mTextView;
-
-        public ViewHolder(View view) {
-            super(view);
-            view.setOnClickListener(this);
-            mTextView = (TextView) view;
-        }
-
-        public void setItem(String item) {
-            mItem = item;
-            mTextView.setText(item);
-        }
-
-        @Override
-        public void onClick(View view) {
-            Log.d(TAG, "onClick " + getPosition() + " " + mItem);
-        }
-    }
-
-    private String[] mDataset;
-
-    public MyAdapter(String[] dataset) {
-        mDataset = dataset;
-    }
-
-
-
-    @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.single_item_view, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-        holder.setItem(mDataset[position]);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mDataset.length;
-    }
-}
-*/

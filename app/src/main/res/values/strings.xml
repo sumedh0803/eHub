@@ -9,6 +9,14 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="semester">
+        <item name="sem1">Semester 1</item>
+        <item name="sem2">Semester 2</item>
+        <item name="sem3">Semester 3</item>
+        <item name="sem4">Semester 4</item>
+        <item name="sem5">Semester 5</item>
+        <item name="sem6">Semester 6</item>
+        <item name="sem7">Semester 7</item>
+        <item name="sem8">Semester 8</item>
+    </string-array>
 </resources>

@@ -147,11 +147,13 @@ public class home extends AppCompatActivity
 
         if (id == R.id.nav_profile) {
             startActivity(new Intent(home.this,profile.class));
-            finish();
+            //finish();
         }
-        /*else if (id == R.id.nav_gallery) {
+        else if (id == R.id.nav_study) {
+            startActivity(new Intent(home.this,studyMaterial.class));
+            //finish();
 
-        } else if (id == R.id.nav_slideshow) {
+        }/* else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 

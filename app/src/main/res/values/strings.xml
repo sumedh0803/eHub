@@ -19,4 +19,8 @@
         <item name="sem7">Semester 7</item>
         <item name="sem8">Semester 8</item>
     </string-array>
+    <string name="title_activity_study_material">Study Material</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

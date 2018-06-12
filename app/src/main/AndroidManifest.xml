@@ -32,7 +32,10 @@
         <activity android:name=".profile" />
         <activity android:name=".university" />
         <activity android:name=".branch" />
-        <activity android:name=".semester"></activity>
+        <activity android:name=".semester" />
+        <activity
+            android:name=".studyMaterial"
+            android:label="@string/title_activity_study_material"></activity>
     </application>
 
 </manifest>

@@ -153,9 +153,10 @@ public class home extends AppCompatActivity
             startActivity(new Intent(home.this,studyMaterial.class));
             //finish();
 
-        }/* else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_attendance) {
+            startActivity(new Intent(home.this,getSubjects.class));
 
-        } else if (id == R.id.nav_manage) {
+        }/* else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

@@ -122,4 +122,10 @@ public class university extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(university.this,profile.class));
+    }
 }

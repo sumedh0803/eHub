@@ -87,5 +87,10 @@ public class semester extends AppCompatActivity {
         });
     }
 
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(semester.this,profile.class));
+    }
+
     }
 

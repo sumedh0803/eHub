@@ -147,4 +147,9 @@ public class branch extends AppCompatActivity {
 
 
     }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(branch.this,profile.class));
+    }
 }

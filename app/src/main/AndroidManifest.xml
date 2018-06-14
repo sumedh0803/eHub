@@ -36,7 +36,8 @@
         <activity
             android:name=".studyMaterial"
             android:label="@string/title_activity_study_material" />
-        <activity android:name=".getSubjects"></activity>
+        <activity android:name=".getSubjects"
+            android:windowSoftInputMode="adjustNothing"></activity>
     </application>
 
 </manifest>
